@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKR | Portfolio</title>
+
+<style>
+:root{
+  --bg:#16001f;
+  --purple:#7b2cbf;
+  --pink:#ff4d9d;
+  --violet:#8f2fff;   /* 🔥 violet line color */
+  --box:#1f0033;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top, #24003a, var(--bg));
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+.container{
+  width:90%;
+  max-width:420px;
+  text-align:center;
+}
+
+/* AKR */
+.logo{
+  font-size:52px;
+  font-weight:700;
+  letter-spacing:10px;
+  background:linear-gradient(90deg, var(--purple), var(--pink));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+
+.intro{
+  font-size:13px;
+  opacity:.8;
+  margin-bottom:28px;
+}
+
+/* BOX */
+.box{
+  position:relative;
+  margin:16px 0;
+  padding:18px;
+  border-radius:16px;
+  background:var(--box);
+  border:1px solid rgba(255,255,255,.07);
+  cursor:pointer;
+  overflow:hidden;
+  transition:.4s;
+}
+
+/* purple + pink hover */
+.box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(123,44,191,.45),
+    rgba(255,77,157,.45),
+    transparent
+  );
+  opacity:0;
+  transition:.4s;
+}
+
+.box:hover::before{
+  opacity:1;
+}
+
+/* 🔥 VIOLET MOVING LINE */
+.box::after{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-40%;
+  width:180%;
+  height:18px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--violet),
+    transparent
+  );
+  opacity:.6;
+  animation:scan 2.5s infinite;
+}
+
+@keyframes scan{
+  to{ top:120%; }
+}
+
+.box:hover{
+  transform:scale(1.04);
+  box-shadow:
+    0 0 18px rgba(143,47,255,.45),
+    0 0 30px rgba(123,44,191,.25);
+}
+
+.box span{
+  font-size:18px;
+  font-weight:600;
+}
+
+.footer{
+  margin-top:26px;
+  font-size:12px;
+  opacity:.55;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">AKR</div>
+  <div class="intro">Interactive Web Projects</div>
+
+  <div class="box" onclick="goAge()">
+    <span>Age Calculator</span>
+  </div>
+
+  <div class="box" onclick="goGame()">
+    <span>Car Racing Game</span>
+  </div>
+
+  <div class="footer">
+    © AKR | GitHub Pages
+  </div>
+
+</div>
+
+<script>
+function goAge(){
+  location.href="https://amit931768.github.io/Age__Calculator/";
+}
+function goGame(){
+  location.href="https://amit931768.github.io/_Car__Racing_/";
+}
+</script>
+
+</body>
+</html>
